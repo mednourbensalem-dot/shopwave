@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>ShopWave — thoughtful things, delivered</title>
+  <link rel="stylesheet" href="/css/store.css">
+</head>
+<body>
+  <div class="announcement">A little something for your everyday <span>✳</span> Thoughtful finds, fair prices</div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ShopWave home"><span class="brand-mark">s.</span> shopwave</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#catalog">Shop all</a>
+      <a href="#catalog" data-category-link="Home">Home</a>
+      <a href="#catalog" data-category-link="Electronics">Electronics</a>
+      <a href="#catalog" data-category-link="Books">Books</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="account-button" type="button" aria-label="Account"><span aria-hidden="true">♙</span><span class="action-label" id="account-label">Sign in</span></button>
+      <button class="icon-button cart-trigger" id="cart-button" type="button" aria-label="Open shopping bag"><span aria-hidden="true">♧</span><span class="action-label">Bag</span><span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEW FAVORITE PLACE</p>
+        <h1>Good things.<br><em>Every day.</em></h1>
+        <p class="hero-description">Useful little upgrades, well-made essentials, and a few things you didn't know you needed.</p>
+        <a class="button button-dark" href="#catalog">Find your thing <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span class="note-stars">★★★★★</span> Good finds, good feelings.</div>
+      </div>
+      <div class="hero-art" aria-label="A curated collection of everyday essentials">
+        <div class="hero-sun"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="art-card art-card-main"><span class="art-caption">A softer start</span><span class="art-mug" aria-hidden="true">☕</span><span class="art-caption art-caption-bottom">little rituals, big joy</span></div>
+        <div class="art-sticker sticker-one">made for<br>your everyday</div><div class="art-sticker sticker-two" aria-hidden="true">✳</div>
+        <div class="art-product product-book" aria-hidden="true">▤</div><div class="art-product product-headphones" aria-hidden="true">◖</div>
+        <div class="hero-vertical">THE GOOD STUFF, FOUND</div>
+      </div>
+      <div class="hero-bottom"><span>CURATED FOR REAL LIFE</span><span>SCROLL TO EXPLORE ↓</span><span>EST. WITH CARE · SHOPWAVE</span></div>
+    </section>
+
+    <section class="benefits" aria-label="Shop benefits">
+      <div><span class="benefit-icon">✳</span><span><strong>Chosen with care</strong><small>Everyday things, a little better</small></span></div>
+      <div><span class="benefit-icon">♡</span><span><strong>Easy on the wallet</strong><small>Good quality, fair prices</small></span></div>
+      <div><span class="benefit-icon">↗</span><span><strong>Made for real life</strong><small>Useful things you'll actually use</small></span></div>
+    </section>
+
+    <section class="catalog section-wrap" id="catalog">
+      <div class="section-heading">
+        <div><p class="eyebrow">A FEW GOOD THINGS</p><h2>Find your <em>something.</em></h2></div>
+        <p class="catalog-intro">Little upgrades for work, rest, and everything in between.</p>
+      </div>
+      <div class="catalog-tools">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search the good stuff..." aria-label="Search products"><kbd>↵</kbd></label>
+        <label class="sort-control"><span>Sort by</span><select id="sort-select" aria-label="Sort products"><option value="id,asc">Featured</option><option value="name,asc">Name A–Z</option><option value="price,asc">Price: low to high</option><option value="price,desc">Price: high to low</option></select></label>
+      </div>
+      <div class="category-pills" id="category-pills" aria-label="Filter by category"></div>
+      <div class="catalog-meta"><span id="result-count">Finding your favorites…</span><span>GOOD FINDS, NO FUSS <span aria-hidden="true">✳</span></span></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="empty-state"><span>⌕</span><h3>Nothing found just yet.</h3><p>Try another search or category.</p><button class="text-button" id="reset-filters" type="button">Clear filters ↗</button></div>
+      <div class="load-error hidden" id="load-error"><p>We couldn't load the shop right now.</p><button class="button button-dark" id="retry-load" type="button">Try again</button></div>
+    </section>
+
+    <section class="newsletter">
+      <div class="newsletter-spark" aria-hidden="true">✳</div>
+      <p class="eyebrow">A NOTE FROM THE SHOP</p><h2>Good things are<br><em>worth finding.</em></h2>
+      <p>Take a look around. Your next everyday favorite might be right here.</p>
+      <a class="button button-light" href="#catalog">Explore the collection <span aria-hidden="true">↗</span></a>
+      <span class="newsletter-side">A LITTLE MORE JOY IN YOUR EVERYDAY</span>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand brand-footer" href="/"><span class="brand-mark">s.</span> shopwave</a><span>GOOD THINGS FOR EVERYDAY LIVING.</span><a href="/swagger-ui.html">API docs ↗</a><span>© <span id="year"></span> SHOPWAVE</span></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="drawer hidden" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="panel-header"><div><p class="eyebrow">YOUR GOOD FINDS</p><h2>Your bag <span id="drawer-count">(0)</span></h2></div><button class="close-button" data-close type="button" aria-label="Close shopping bag">×</button></div>
+    <div class="drawer-content" id="cart-content"></div>
+    <div class="drawer-footer hidden" id="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="cart-total"></strong></div><p class="fine-print">Shipping and any applicable taxes are calculated at checkout.</p><button class="button button-dark button-full" id="checkout-button" type="button">Continue to checkout <span>↗</span></button></div>
+  </aside>
+
+  <section class="modal hidden" id="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-title">
+    <button class="close-button modal-close" data-close type="button" aria-label="Close">×</button>
+    <p class="eyebrow">WELCOME TO SHOPWAVE</p><h2 id="account-title">Good to have <em>you.</em></h2>
+    <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login" type="button">Sign in</button><button class="auth-tab" data-auth-mode="register" type="button">Create account</button></div>
+    <form id="auth-form">
+      <label class="form-field hidden" id="name-field">Your name<input name="name" autocomplete="name" minlength="1"></label>
+      <label class="form-field">Email address<input name="email" type="email" autocomplete="email" required></label>
+      <label class="form-field">Password<input name="password" type="password" autocomplete="current-password" minlength="6" required></label>
+      <p class="form-message" id="auth-message" role="status"></p>
+      <button class="button button-dark button-full" id="auth-submit" type="submit">Sign in <span>↗</span></button>
+    </form>
+    <div class="demo-hint" id="demo-hint">Just looking? Browse freely. <br>Demo customer: customer@shop.com / customer123</div>
+    <div class="account-signed hidden" id="account-signed"></div>
+  </section>
+
+  <section class="modal modal-wide hidden" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <button class="close-button modal-close" data-close type="button" aria-label="Close">×</button>
+    <p class="eyebrow">ALMOST YOURS</p><h2 id="checkout-title">Where should we <em>send it?</em></h2>
+    <form id="checkout-form">
+      <label class="form-field">Shipping address<textarea name="shippingAddress" rows="3" maxlength="250" placeholder="Street, city, postal code, country" required></textarea></label>
+      <p class="form-message" id="checkout-message" role="status"></p>
+      <button class="button button-dark button-full" id="place-order" type="submit">Place order <span>↗</span></button>
+    </form>
+  </section>
+
+  <section class="modal modal-wide hidden" id="orders-modal" role="dialog" aria-modal="true" aria-labelledby="orders-title">
+    <button class="close-button modal-close" data-close type="button" aria-label="Close">×</button>
+    <p class="eyebrow">YOUR SHOPWAVE STORY</p><h2 id="orders-title">Your <em>orders.</em></h2>
+    <div id="orders-content" class="orders-content"></div>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/js/store.js" defer></script>
+</body>
+</html>
